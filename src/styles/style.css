@@ -1,0 +1,25 @@
+body{
+    height: 100vh;
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#sidebar {
+    float: left;
+    width: 29.5%;
+    height: 90vh;
+}
+
+#sort-and-filter {
+    float: left;
+    top: 0;
+    border: 0.5px solid #000000;
+    height: 250px;
+    width: 100%;
+}
+#quick-plot{
+    bottom: 0;
+    border: 0.5px solid #000000;
+    height: 850px;
+    width: 100%;
+}
