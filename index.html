@@ -5,14 +5,20 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Mapbox GL Vue JS Example</title>
         <meta name="description" content="A Vue JS component for Mapbox GL">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content='initial-scale=1,maximum-scale=1,user-scalable=no'>
 
+		<!--Vue.js CDN-->
 		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
 
+		<!--Mapbox Scripts-->
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.js'></script>
 		<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.0.0/mapbox-gl-draw.js'></script>
 		<script src='src/components/nav.js'></script>
+		<script src='src/app.js'></script>
+		<script src="https://unpkg.com/vue"></script>
+		<script src="dist/app.js" async></script>
 
+		<!--Mapbox Styles-->
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.42.2/mapbox-gl.css' rel='stylesheet' />
 		<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v0.19.0/mapbox-gl-draw.css' type='text/css' />
 		<link rel='stylesheet' href='src/styles/style.css' type='text/css'/>
@@ -29,16 +35,18 @@
 			</div>
 		</div>	
 			
+		<!--
 		<section id="sidebar">
 			<div id='sort-and-filter'></div>
 			<div id='quick-plot'></div>
 		</section>
+			-->
 		 
 		<div id="app">
 			<mapbox
 				access-token="pk.eyJ1IjoiZHdpbmFzb2xpaGluIiwiYSI6ImNqb3JndnU5ejAxMW4zcHBqdnJjcHM5eHAifQ.LWz5kPYYDeY2aQqxM0B1zw"
 				:map-options="{
-			    	style: 'mapbox://styles/mapbox/satellite-v9',
+			    	style: 'mapbox://styles/mapbox/streets-v10',
 			    	center: [-126.5829, 45.3564],
 			    	zoom: 6.37
 			    }"
@@ -71,7 +79,6 @@
 				>
 			</mapbox>
 		</div><!-- /#app -->
-		<script src="https://unpkg.com/vue"></script>
-		<script src="dist/app.js"></script>
+		
     </body>
 </html>

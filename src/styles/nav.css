@@ -1,12 +1,17 @@
 /*Navigation styling*/
 #topnav {
   overflow: hidden;
-  background-color: #b3b3b7; }
+  background-color: #000000; 
+  opacity: 0.3;
+  height: 10vh;
+  width: 100%;
+  border: 1px solid #808080;
+}
 
 #topnav a {
   float: right;
   display: block;
-  color: #000000;
+  color: #FFFFFF;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;

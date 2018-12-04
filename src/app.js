@@ -11,49 +11,33 @@ const app = new Vue({
 	methods: {
 		mapInit(map) {
 			const Draw = new MapboxDraw();
-
 			map.addControl(Draw);
 		},
 		mapLoaded(map) {
-			map.addLayer({
-				'id': 'points',
-				'type': 'symbol',
-				'source': {
-					'type': 'geojson',
-					'data': {
-						'type': 'FeatureCollection',
-						'features': [{
-							'type': 'Feature',
-							'geometry': {
-								'type': 'Point',
-								'coordinates': [-77.03238901390978, 38.913188059745586]
-							},
-							'properties': {
-								'title': 'Mapbox DC',
-								'icon': 'monument'
-							}
-						}, {
-							'type': 'Feature',
-							'geometry': {
-								'type': 'Point',
-								'coordinates': [-122.414, 37.776]
-							},
-							'properties': {
-								'title': 'Mapbox SF',
-								'icon': 'harbor'
-							}
-						}]
-					}
-				},
-				'layout': {
-					'icon-image': '{icon}-15',
-					'text-field': '{title}',
-					'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-					'text-offset': [0, 0.6],
-					'text-anchor': 'top'
-				}
+			map.addSource('10m-bathymetry-81bsvj', {
+				type: 'vector',
+				url: 'mapbox://mapbox.9tm8dx88'
 			});
+			map.addLayer({
+				'id': '10m-bathymetry-81bsvj',
+				'type': 'fill',
+				'source': "10m-bathymetry-81bsvj",
+				'layout': {},
+				'paint': {
+					"fill-outline-color": "hsla(337, 82%, 62%, 0)",
+					"fill-color": ["interpolate",
+						["cubic-bezier",
+							0,0.5,
+							1,0.5
+						],
+						["get", "DEPTH"],
+						200, "#78bced",
+						9000, "#15659f"
+					]
+				}
+			}, 'barrier_line-land-polygon');
 		},
+
 		mapClicked(map, e) {
 			this.addPopUp(map, e);
 		},
